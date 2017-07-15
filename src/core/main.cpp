@@ -111,9 +111,6 @@ int main(int argc, char *argv[])
 
 #if defined(Q_OS_WIN)
     //QApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
-    QApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
-    QCoreApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
-    QGuiApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
 #endif
 
     QApplication app(argc, argv);
