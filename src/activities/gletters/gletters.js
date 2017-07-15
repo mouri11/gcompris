@@ -83,7 +83,7 @@ function start(items_, uppercaseOnly_,  _mode) {
     items.wordlist.loadFromFile(GCompris.ApplicationInfo.getLocaleFilePath(
         items.ourActivity.dataSetUrl + "default-"+locale+".json"));
 
-    print("loaded from file")
+    print("loaded from file " + items.wordlist.maxLevel)
     
     // If wordlist is empty, we try to load from short locale and if not present again, we switch to default one
     var localeUnderscoreIndex = locale.indexOf('_')
@@ -105,7 +105,7 @@ function start(items_, uppercaseOnly_,  _mode) {
         items.wordlist.useDefault = false
     }
 
-    print(JSON.stringify(items.wordlist));
+    print(items.wordlist);
     maxLevel = items.wordlist.maxLevel;
     droppedWords = new Array();
     print("before init");
