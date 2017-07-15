@@ -74,11 +74,17 @@ function start(items_, uppercaseOnly_,  _mode) {
 
     var locale = items.locale == "system" ? "$LOCALE" : items.locale
 
+    print("locale" + locale)
     // register the voices for the locale
     GCompris.DownloadManager.updateResource(GCompris.DownloadManager.getVoicesResourceForLocale(GCompris.ApplicationInfo.getVoicesLocale(items.locale)));
 
+    print("updated resource")
+    
     items.wordlist.loadFromFile(GCompris.ApplicationInfo.getLocaleFilePath(
-            items.ourActivity.dataSetUrl + "default-"+locale+".json"));
+        items.ourActivity.dataSetUrl + "default-"+locale+".json"));
+
+    print("loaded from file")
+    
     // If wordlist is empty, we try to load from short locale and if not present again, we switch to default one
     var localeUnderscoreIndex = locale.indexOf('_')
     // probably exist a better way to see if the list is empty
@@ -98,9 +104,13 @@ function start(items_, uppercaseOnly_,  _mode) {
         // We remove the using of default file for next time we enter this function
         items.wordlist.useDefault = false
     }
+
+    print(JSON.stringify(items.wordlist));
     maxLevel = items.wordlist.maxLevel;
     droppedWords = new Array();
+    print("before init");
     initLevel();
+    print("after init");
 }
 
 function stop() {
