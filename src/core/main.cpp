@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
     qunsetenv("QT_DEVICE_PIXEL_RATIO");
 
 #if defined(Q_OS_WIN)
-    QApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
+    //QApplication::setAttribute(Qt::AA_UseSoftwareOpenGL);
 #endif
 
     QApplication app(argc, argv);
